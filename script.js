@@ -4,8 +4,12 @@ const screenWidth = window.innerWidth;
 const screenHeight = window.innerHeight;
 let hoverIndex = 0;
 
-const randomizeNumber = (min, max) => min + Math.floor(Math.random() * max);
-
+// const randomizeNumber = (min, max) => min + Math.floor(Math.random() * max);
+function randomizeNumber(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 const addCard = value => {
     let card = document.createElement('div');
@@ -15,6 +19,8 @@ const addCard = value => {
 
     let randomXPos = randomizeNumber(0, screenWidth - cardWidth);
     let randomYPos = randomizeNumber(0, screenHeight - 5 * cardWidth);
+
+    console.log(i, randomXPos);
 
     card.style.left = `${randomXPos}px`;
     card.style.top = `${randomYPos}px`;
