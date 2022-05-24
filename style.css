@@ -1,10 +1,12 @@
 .card{
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     border: 2px solid black;
     display: flex;
     align-items: center;
     justify-content: center;
-    /*left: 100px;*/
+    font-size: 50px;
+    background-color: white;
+    font-weight: bold;
 }
