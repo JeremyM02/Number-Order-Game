@@ -1,3 +1,16 @@
+* {
+    box-sizing: border-box;
+}
+
+body, html{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: #fafafa;
+}
+
 .card{
     position: absolute;
     width: 150px;
@@ -6,7 +19,124 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 50px;
+    font-size: 100px;
     background-color: white;
     font-weight: bold;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    opacity: 1;
+    transition: opacity 1s;
+    user-select: none;
+}
+
+.topbar{
+    display: flex;
+    position: fixed;
+    width: 100%;
+    min-height: 75px;
+    top: 10px;
+    left: 10px;
+    flex-direction: row;
+}
+
+.title{
+    /* position: fixed; */
+    /* width: 100%; */
+    min-height: 75px;
+    /* top: 0; */
+    /* left: 0; */
+    margin: 0 20px;
+    text-align: center;
+    font-weight: bold;
+    border: 8px solid black;
+    font-size: 80px;
+    padding: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#game-button{
+    color: white;
+    background-color: darkgreen;
+    font-size: 40px;
+    width: 200px;
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+#game-button[disabled]{
+    opacity: 0;
+    display: none;
+}
+
+.difficulty{
+    position: absolute;
+    display: flex;
+    top: 50vh;
+    width: 100%;
+    
+}
+.difficulty button{
+    flex: 1;
+    padding: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    border: 4px solid black;
+    margin: 0 20px;
+}
+
+.reset{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 50vh;
+    margin: auto;
+    width: 100%;
+}
+.reset button{
+    display: none;
+    padding: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    border: 4px solid black;
+    color: white;
+    border-radius: 10px;
+    background-color: darkred;
+    z-index: 3;
+}
+
+#easy{
+    background-color: lightgreen;
+}
+#normal{
+    background-color: yellow;
+}
+#hard{
+    background-color: red;
+}
+
+#game-text{
+    flex: 3;
+    margin: 0 20px;
+    text-align: center;
+    font-weight: bold;
+    border: 8px solid black;
+    transition: border-color 1s;
+    font-size: 40px;
+    padding: 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#result-text{
+    display: none;
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    font-size: 40px;
+    text-align: center;
+    padding: 10px;
+    left: 0;
+    top: 50vh;
+    border: 4px solid black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    opacity: 0;
+    transition: opacity 0.5s;
 }
