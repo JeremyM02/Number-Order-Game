@@ -112,6 +112,10 @@ body{
 #hard{
     background-color: red;
 }
+#ultimate{
+    display: none;
+    background-color: purple;
+}
 
 #game-text{
     flex: 3;

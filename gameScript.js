@@ -15,6 +15,9 @@ const difficultyDiv = document.querySelector('.difficulty');
 const easy = document.getElementById('easy');
 const normal = document.getElementById('normal');
 const hard = document.getElementById('hard');
+const ultimate = document.getElementById('ultimate');
+const secret = document.getElementById('secret');
+
 let numCards;
 let difficulty;
 
@@ -29,6 +32,14 @@ normal.addEventListener('click', function(){
 hard.addEventListener('click', function(){
     gameStart('hard');
     difficulty = 'hard';
+});
+ultimate.addEventListener('click', function(){
+    gameStart('ultimate');
+    difficulty = 'ultimate';
+});
+secret.addEventListener('click', function(){
+    ultimate.style.display = "block";
+    secret.style.color = "purple";
 });
 
 resetButton.addEventListener('click', function(){
@@ -51,6 +62,9 @@ resetButton.addEventListener('click', function(){
         case 'hard':
             gameStart('hard');
             break;
+        case 'ultimate':
+            gameStart('ultimate');
+            break;
     }
 })
 
@@ -66,10 +80,14 @@ function gameStart(difficulty){
     } else if (difficulty === 'hard'){
         numCards = 15;
         gameText.style.borderColor = 'red';
+    } else if (difficulty === "ultimate"){
+        numCards = 50;
+        gameText.style.borderColor = 'purple';
     }
     easy.remove();
     normal.remove();
     hard.remove();
+    ultimate.remove();
 
     gameText.textContent = 'Memorize the order of the cards!';
 
@@ -77,7 +95,14 @@ function gameStart(difficulty){
 }
 
 function winGame(){
-    resultText.textContent = `Congratulations! You counted to ${numCards}!`;
+    if (difficulty === "ultimate"){
+        resultText.textContent = `The codeword is SANDHILL`;
+    } else if(difficulty === "hard"){
+        resultText.textContent = `Wow! Restart the site and click the 'u' for the Ultimate Challenge!`;
+    } else {
+        resultText.textContent = `Congratulations! You counted to ${numCards}!`;
+    }
+    
     resultText.style.display = "block";
     resultText.style.color = "green";
     setTimeout(function(){
